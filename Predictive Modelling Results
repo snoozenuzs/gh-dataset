@@ -1,7 +1,9 @@
+The final cleaned dataframe is splitted into 80% training and 20% testing. 
+
 After hypertuning, the accuracy of the models is as follows:
-Logistic Regression: 0.996
-Decision Trees: 0.994
-Random Forest: 0.996
+Logistic Regression: 0.996, Best Hyperparameters for Logistic Regression: {'C': 1, 'max_iter': 1000, 'penalty': 'l2'}
+Decision Trees: 0.994, Best Hyperparameters for Decision Trees: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 10}
+Random Forest: 0.996, Best Hyperparameters for Random Forests: {'max_depth': 11, 'min_samples_leaf': 3, 'min_samples_split': 8, 'n_estimators': 114}
 
 I have also populated a sample test data for 10 patients and use the model to predict the gh values of the patient based on the other inputs. 
 
@@ -37,4 +39,7 @@ actual data = [1,1,1,0,1,0,1,0,1,0]
 log_reg_predictions = [1 1 1 1 1 1 1 1 0 1]
 dt_predictions = [1 0 0 1 0 1 0 0 0 0]
 rf_predictions = [0 0 0 0 0 0 0 0 0 0]
+
+Here you would notice that the rf_prediction is unable to predict correctly as the hyper paramters had determined that the no. of n_estimators is set at 114, and the size of test sample is unsufficient. 
+
 
