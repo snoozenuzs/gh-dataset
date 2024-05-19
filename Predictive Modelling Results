@@ -1,0 +1,40 @@
+After hypertuning, the accuracy of the models is as follows:
+Logistic Regression: 0.996
+Decision Trees: 0.994
+Random Forest: 0.996
+
+I have also populated a sample test data for 10 patients and use the model to predict the gh values of the patient based on the other inputs. 
+
+# Sample test data
+test_data = {
+    'seqn': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'sex': ['male', 'female', 'male', 'female', 'male', 'female', 'male', 'female', 'male', 'female'],
+    'age': [50, 35, 45, 55, 40, 60, 25, 70, 30, 65],
+    're': ['Mexican American', 'Non-Hispanic White', 'Non-Hispanic Black', 'Other Hispanic', 'Other Race Including Multi-Racial', 'Mexican American', 'Non-Hispanic White', 'Non-Hispanic Black', 'Other Hispanic', 'Other Race Including Multi-Racial'],
+    'income': ['[5000,10000)', '[15000,20000)', '[25000,35000)', '[35000,45000)', '[45000,55000)', '[55000,65000)', '[65000,75000)', '[75000,100000)', '< 20000', '> 20000'],
+    'tx': [1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
+    'dx': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    'wt': [70, 60, 80, 65, 75, 85, 55, 90, 50, 95],
+    'ht': [170, 165, 175, 160, 180, 155, 185, 150, 190, 145],
+    'bmi': [24, 22, 26, 25, 27, 23, 28, 21, 29, 20],
+    'leg': [80, 75, 85, 70, 90, 65, 95, 60, 100, 55],
+    'arml': [30, 28, 32, 27, 33, 26, 34, 25, 35, 24],
+    'armc': [28, 26, 30, 25, 31, 24, 32, 23, 33, 22],
+    'waist': [75, 70, 80, 68, 82, 66, 84, 64, 86, 62],
+    'tri': [15, 12, 18, 10, 20, 8, 22, 6, 24, 4],
+    'sub': [20, 18, 22, 16, 24, 14, 26, 12, 28, 10],
+    'gh': [7, 6.5, 7.5, 6, 8, 5.5, 8.5, 5, 9, 4.5],
+    'albumin': [4.5, 4.0, 5.0, 3.5, 5.5, 3.0, 6.0, 2.5, 6.5, 2.0],
+    'bun': [10, 8, 12, 7, 13, 6, 14, 5, 15, 4],
+    'SCr': [0.8, 0.7, 0.9, 0.6, 1.0, 0.5, 1.1, 0.4, 1.2, 0.3]
+}
+
+
+The prediction for the patients is then reflected as follows:
+Where gh>= 6.5, the patient would be encoded as 1(Yes, diabetic) and 0 (No) for otherwise cases. 
+
+actual data = [1,1,1,0,1,0,1,0,1,0]
+log_reg_predictions = [1 1 1 1 1 1 1 1 0 1]
+dt_predictions = [1 0 0 1 0 1 0 0 0 0]
+rf_predictions = [0 0 0 0 0 0 0 0 0 0]
+
